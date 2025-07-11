@@ -39,24 +39,16 @@ st.markdown("Insira o valor do investimento para prever os leads por sexo e tipo
 @st.cache_resource # Usar st.cache_resource para objetos de modelo
 def load_model():
     """Carrega o modelo de Regressão Linear treinado."""
-    # Substitua esta parte pelo seu modelo_lr treinado
-    # Exemplo: modelo = joblib.load('caminho/para/seu/modelo_lr.pkl')
-    # Ou, se você estiver rodando em um ambiente onde modelo_lr já está na memória:
-    # return modelo_lr # Apenas se modelo_lr já foi treinado e está acessível
-
-    # --- SIMULAÇÃO: TREINAMENTO DO MODELO (APENAS PARA DEMONSTRAÇÃO NO APP) ---
-    # EM UM APP REAL, VOCÊ CARREGARIA O MODELO JÁ TREINADO, NÃO TREINARIA AQUI.
-    # Este bloco é um placeholder. Você deve substituí-lo pelo carregamento do seu modelo_lr.
     try:
-        # Tenta usar o modelo_lr da sessão anterior (se em Jupyter/Colab)
-        if 'modelo_lr' in globals():
-            st.write("Usando modelo_lr existente na memória.")
-            return globals()['modelo_lr']
-        else:
-            st.error("Modelo 'modelo_lr' não encontrado na memória. Por favor, certifique-se de que o modelo foi treinado e está disponível.")
-            st.stop() # Para a execução do Streamlit
-    except NameError:
-        st.error("Modelo 'modelo_lr' não encontrado. Por favor, treine seu modelo e execute novamente.")
+        # --- CARREGAMENTO REAL DO MODELO ---
+        # Certifique-se de que 'modelo_lr.pkl' está no seu repositório GitHub.
+        modelo = joblib.load('modelo_lr.pkl')
+        return modelo
+    except FileNotFoundError:
+        st.error("Erro: Arquivo 'modelo_lr.pkl' não encontrado. Certifique-se de que o modelo foi salvo no diretório correto.")
+        st.stop() # Para a execução do Streamlit
+    except Exception as e:
+        st.error(f"Erro ao carregar o modelo: {e}")
         st.stop()
     # --- FIM DA SIMULAÇÃO ---
 
