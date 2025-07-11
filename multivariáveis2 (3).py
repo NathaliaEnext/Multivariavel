@@ -16,12 +16,6 @@ from sklearn.model_selection import train_test_split
 
 df_loaded = pd.read_csv('dados_campanha_vest - dados_campanha_vest (1).csv')
 
-print(df.info())
-print(df.isnull().sum())
-
-print("Colunas encontradas no CSV:")
-print(df.columns)
-
 df = df.rename(columns=lambda x: x.strip())
 
 print(df)
