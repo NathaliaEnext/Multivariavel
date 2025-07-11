@@ -16,8 +16,6 @@ from sklearn.model_selection import train_test_split
 
 df_loaded = pd.read_csv('dados_campanha_vest - dados_campanha_vest (1).csv')
 
-df_original.shape
-
 print(df.info())
 print(df.isnull().sum())
 
