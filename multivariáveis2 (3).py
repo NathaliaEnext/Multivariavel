@@ -18,7 +18,7 @@ df_loaded = pd.read_csv('dados_campanha_vest - dados_campanha_vest (1).csv')
 
 #df = df.rename(columns=lambda x: x.strip())
 
-print(df)
+#print(df)
 
 df = df.rename(columns={
     'Custo': 'investimento',
